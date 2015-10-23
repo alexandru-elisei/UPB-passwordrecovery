@@ -1,41 +1,41 @@
 window.onload = disableInputAuth;
 
 function disableInputAuth() {
-	document.getElementById("authselect").value="DefaultMessage";
+	document.getElementById("authmethod").value="DefaultMessage";
 	document.getElementById("authbuttonreset").disabled = true;
-	document.getElementById("authinput").value = "";
-	document.getElementById("authinput").setAttribute("style", "");
-	document.getElementById("authinput").disabled = true;
+	document.getElementById("authdata").value = "";
+	document.getElementById("authdata").setAttribute("style", "");
+	document.getElementById("authdata").disabled = true;
 }
 
 function enableInputAuth() {
-	if (document.getElementById("authselect").value == "Email") {
-		document.getElementById("authinput").disabled = false;
-		document.getElementById("authinput").value = "Email";
-		document.getElementById("authinput").setAttribute("style", "font-style: italic; color: grey");
+	if (document.getElementById("authmethod").value == "email") {
+		document.getElementById("authdata").disabled = false;
+		document.getElementById("authdata").value = "Email";
+		document.getElementById("authdata").setAttribute("style", "font-style: italic; color: grey");
 		document.getElementById("authbuttonreset").disabled = true;
-	} else if (document.getElementById("authselect").value == "UserId") {
-		document.getElementById("authinput").disabled = false;
-		document.getElementById("authinput").value = "UserId";
-		document.getElementById("authinput").setAttribute("style", "font-style: italic; color: grey");
+	} else if (document.getElementById("authmethod").value == "userid") {
+		document.getElementById("authdata").disabled = false;
+		document.getElementById("authdata").value = "UserID";
+		document.getElementById("authdata").setAttribute("style", "font-style: italic; color: grey");
 		document.getElementById("authbuttonreset").disabled = true;
-	} else if (document.getElementById("authselect").value == "NrTel") {
-		document.getElementById("authinput").disabled = false;
-		document.getElementById("authinput").value = "Nr. Tel.";
-		document.getElementById("authinput").setAttribute("style", "font-style: italic; color: grey");
+	} else if (document.getElementById("authmethod").value == "telnum") {
+		document.getElementById("authdata").disabled = false;
+		document.getElementById("authdata").value = "Nr. Tel.";
+		document.getElementById("authdata").setAttribute("style", "font-style: italic; color: grey");
 		document.getElementById("authbuttonreset").disabled = true;
 	} else {
 		document.getElementById("authbuttonreset").disabled = true;
-		document.getElementById("authinput").value = "";
-		document.getElementById("authinput").disabled = true;
+		document.getElementById("authdata").value = "";
+		document.getElementById("authdata").disabled = true;
 	}
 }
 
 function prepareInputAuth() {
-	if (document.getElementById("authinput").disabled == false &&
-			document.getElementById("authinput").style.color == "grey") {
-		document.getElementById("authinput").value = "";
-		document.getElementById("authinput").setAttribute("style", "");
+	if (document.getElementById("authdata").disabled == false &&
+			document.getElementById("authdata").style.color == "grey") {
+		document.getElementById("authdata").value = "";
+		document.getElementById("authdata").setAttribute("style", "");
 		document.getElementById("authbuttonreset").disabled = true;
 	}
 }
