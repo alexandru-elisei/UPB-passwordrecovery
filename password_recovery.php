@@ -27,7 +27,7 @@ $authmethods = array("email", "userid", "telnum");
 		</p>
 		<p class="info">Un cod de verificare va fi trimis către adresa de e-mail personală cu instrucțiuni de resetare a parolei.</p>
 
-		<form action="validate_captcha.php" method=post>
+		<form action="javascript:ajaxFunction()" method=post>
 			<div id="authsection">
 				</br>
 				<select id="authmethod" name="authmethod" onchange="enableInputAuth()">
@@ -39,7 +39,7 @@ $authmethods = array("email", "userid", "telnum");
 				<p class="authinfo">Introduceți datele de autentificare:</p>
 				<input id="authdata" name="authdata" size="25" type="text" disabled onclick="prepareInputAuth()" oninput="enableResetButton()"/>
 				</br>
-				<p class="authinfo">Sunteți un robot?</p>
+				<p class="authinfo" id="captchainfo">Sunteți un robot?</p>
 				<div id="recaptcha" class="g-recaptcha" data-sitekey=<?php echo $sitekey; ?>> </div>
 <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=ro" async defer>
 </script>

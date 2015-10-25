@@ -1,38 +1,9 @@
 window.onload = disableInputAuth;
 
 function disableInputAuth() {
-	/*
-	var getRequestParam = window.location.search.substring(1);
-	var paramArray = getRequestParam.split('&');
-	var paramCount = paramArray.length;
-	var isFailedCaptcha = true;
-
-	if (paramCount != 2) {
-		isFailedCaptcha = false;
-	} else {
-		for (var i = 0; i < paramCount; i++) {
-			var keyValue = paramArray[i].split('=');
-			// First get parameter is always authmethod
-			if (i == 0) { 
-				if (keyValue[0] != "authmethod") {
-					isFailedCaptcha = false;
-					break;
-				} else if (keyValue[1] != "email" && keyValue[1] != "userid" && keyValue[1] != "telnum") {
-					isFailedCaptcha = false;
-					break;
-				}
-			} else if (keyValue[0] != "authdata") {
-				isFailedCaptcha = false;
-				break;
-			}
-		}
-	}
-	*/
-
 	document.getElementById("authmethod").value="DefaultMessage";
 	document.getElementById("authbuttonreset").disabled = true;
 	document.getElementById("authdata").value = "";
-	document.getElementById("authdata").value = getRequestParams;
 	document.getElementById("authdata").setAttribute("style", "");
 	document.getElementById("authdata").disabled = true;
 	document.getElementById("authbuttonreset").disabled = true;
@@ -74,11 +45,11 @@ function enableResetButton() {
 	document.getElementById("authbuttonreset").disabled = false;
 }
 
+var ajaxRequest;
+
 // Browser Support Code
 function ajaxFunction(){
-	var ajaxRequest;
 
-	document.getElementById("authdata").value = "huh";
 	try {
 		// Opera 8.0+, Firefox, Safari
 		ajaxRequest = new XMLHttpRequest();
@@ -92,17 +63,45 @@ function ajaxFunction(){
 			} catch (e) {
 				// Something went wrong
 				alert("Your browser broke!");
-				return false; 
 			}
 		}
 	}
-
-	ajaxRequest.onreadystatechange = function() {
-		if (ajaxRequest.readyState == 4) {
-			document.getElementById("authdata").value = "huh";
-		}
-		ajaxRequest.open("GET", "validate_captcha.php", true);
-		ajaxRequest.send(null);
+	if (ajaxRequest != null) {
+		var response = grecaptcha.getResponse();
+		ajaxRequest.open("POST", "validate_captcha.php", true);
+		ajaxRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		ajaxRequest.send("g-recaptcha-response=" + response);
+		ajaxRequest.onreadystatechange = verifyValidateCaptcha;
 	}
 }
 
+function verifyValidateCaptcha() {
+	if (ajaxRequest.readyState == 4) {
+		if (ajaxRequest.responseText == "success") {
+			// Creating phony form for submitting POST data
+			var phonyForm = document.createElement("form");
+			phonyForm.setAttribute("method", "post");
+			phonyForm.setAttribute("action", "form_submit_success.php");
+
+			// Phony authmethod input field
+			var authMethod = document.createElement("input");
+			authMethod.setAttribute("type", "hidden");
+			authMethod.setAttribute("name", "authmethod");
+			authMethod.setAttribute("value", document.getElementById("authmethod").value);
+			phonyForm.appendChild(authMethod);
+
+			// Phony authdata input field
+			var authData = document.createElement("input");
+			authData.setAttribute("type", "hidden");
+			authData.setAttribute("name", "authdata");
+			authData.setAttribute("value", document.getElementById("authdata").value);
+			phonyForm.appendChild(authData);
+
+			document.body.appendChild(phonyForm);
+			phonyForm.submit();
+		} else {
+			document.getElementById("captchainfo").childNodes[0].nodeValue = "Verificare esuată.";
+			document.getElementById("captchainfo").setAttribute("style", "color: red; font: Helvetica; font-size: 15;");
+		}
+	}
+}
