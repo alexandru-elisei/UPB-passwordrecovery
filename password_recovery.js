@@ -45,39 +45,39 @@ function enableResetButton() {
 	document.getElementById("authbuttonreset").disabled = false;
 }
 
-var ajaxRequest;
+var validationRequest;
 
 // Browser Support Code
-function ajaxFunction(){
+function validateCaptcha(){
 
 	try {
 		// Opera 8.0+, Firefox, Safari
-		ajaxRequest = new XMLHttpRequest();
+		validationRequest = new XMLHttpRequest();
 	} catch (e) {
 		// Internet Explorer Browsers
 		try{
-			ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+			validationRequest = new ActiveXObject("Msxml2.XMLHTTP");
 		} catch (e) {
 			try { 
-				ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+				validationRequest = new ActiveXObject("Microsoft.XMLHTTP");
 			} catch (e) {
 				// Something went wrong
 				alert("Your browser broke!");
 			}
 		}
 	}
-	if (ajaxRequest != null) {
+	if (validationRequest != null) {
 		var response = grecaptcha.getResponse();
-		ajaxRequest.open("POST", "validate_captcha.php", true);
-		ajaxRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		ajaxRequest.send("g-recaptcha-response=" + response);
-		ajaxRequest.onreadystatechange = verifyValidateCaptcha;
+		validationRequest.open("POST", "validate_captcha.php", true);
+		validationRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		validationRequest.send("g-recaptcha-response=" + response);
+		validationRequest.onreadystatechange = verifyValidateCaptcha;
 	}
 }
 
 function verifyValidateCaptcha() {
-	if (ajaxRequest.readyState == 4) {
-		if (ajaxRequest.responseText == "success") {
+	if (validationRequest.readyState == 4) {
+		if (validationRequest.responseText == "success") {
 			// Creating phony form for submitting POST data
 			var phonyForm = document.createElement("form");
 			phonyForm.setAttribute("method", "post");

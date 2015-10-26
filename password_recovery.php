@@ -27,7 +27,7 @@ $authmethods = array("email", "userid", "telnum");
 		</p>
 		<p class="info">Un cod de verificare va fi trimis către adresa de e-mail personală cu instrucțiuni de resetare a parolei.</p>
 
-		<form action="javascript:ajaxFunction()" method=post>
+		<form action="javascript:validateCaptcha()" method=post>
 			<div id="authsection">
 				</br>
 				<select id="authmethod" name="authmethod" onchange="enableInputAuth()">
