@@ -100,7 +100,7 @@ function verifyValidateCaptcha() {
 			document.body.appendChild(phonyForm);
 			phonyForm.submit();
 		} else {
-			document.getElementById("captchainfo").childNodes[0].nodeValue = "Verificare esuată.";
+			document.getElementById("captchainfo").childNodes[0].nodeValue = "Verificare eșuată. Sunteți un robot?";
 			document.getElementById("captchainfo").setAttribute("style", "color: red; font: Helvetica; font-size: 15;");
 		}
 	}
