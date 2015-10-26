@@ -1,9 +1,8 @@
 <?php
-require ("recaptcha/src/autoload.php");
+require("recaptcha/src/autoload.php");
+require("config.php");
 
-$secret = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
 $recaptcha = new \ReCaptcha\ReCaptcha($secret);
-
 $response = filter_var(trim($_POST["g-recaptcha-response"]), FILTER_SANITIZE_STRING);
 $validation = $recaptcha->verify($response);
 

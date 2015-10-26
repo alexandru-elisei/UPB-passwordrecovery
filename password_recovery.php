@@ -1,6 +1,5 @@
 <?php
-$sitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
-$authmethods = array("email", "userid", "telnum");
+require("config.php");
 ?>
 
 <html>
