@@ -39,7 +39,7 @@ require("config.php");
 				<input id="authdata" name="authdata" size="25" type="text" disabled onclick="prepareInputAuth()" oninput="enableResetButton()"/>
 				</br>
 				<p class="authinfo" id="captchainfo">Sunteți un robot?</p>
-				<div id="recaptcha" class="g-recaptcha" data-sitekey=<?php echo $sitekey; ?>> </div>
+				<div id="recaptcha" class="g-recaptcha" data-sitekey=<?php echo $captchasitekey; ?>> </div>
 <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=ro" async defer>
 </script>
 				</br>
