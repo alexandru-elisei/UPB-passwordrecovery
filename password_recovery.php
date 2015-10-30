@@ -2,13 +2,13 @@
 require("config.php");
 ?>
 
+<!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="password_recovery.css">
+	<script type="text/javascript" src="password_recovery.js"></script>
 	<title>Password Recovery</title>
-	<link rel="stylesheet" type="text/css" href="password_recovery.css" />
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<script src="password_recovery.js"></script>
-	</script>
 </head>
 
 <body id="body">
@@ -23,12 +23,11 @@ require("config.php");
 		  <li><b>Email personal</b>: poate fi găsit în pagina <b> Date personale </b>, câmpul <i>E-mail</i></li>
 		  <li><b>Nr. tel. mobil</b>: poate fi găsit în pagina <b> Date personale </b>, câmpul <i>Telefon mobil</i></li>
 		</ul>
-		</p>
 		<p class="info">Un cod de verificare va fi trimis către adresa de e-mail personală cu instrucțiuni de resetare a parolei.</p>
 
 		<form action="javascript:validateCaptcha()" method=post>
 			<div id="authsection">
-				</br>
+				<br/>
 				<select id="authmethod" name="authmethod" onchange="enableInputAuth()">
 					<option selected disabled value="DefaultMessage">Selectați metoda de autentificare</option>
 					<option value="userid">UserID</option>
@@ -37,28 +36,30 @@ require("config.php");
 				</select>
 				<p class="authinfo">Introduceți datele de autentificare:</p>
 				<input id="authdata" name="authdata" size="25" type="text" disabled onclick="prepareInputAuth()" oninput="enableResetButton()"/>
-				</br>
+				<br/>
 				<p class="authinfo" id="captchainfo">Sunteți un robot?</p>
 				<div id="recaptcha" class="g-recaptcha" data-sitekey=<?php echo $captchasitekey; ?>> </div>
 <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=ro" async defer>
 </script>
-				</br>
+				<br/>
 				<input id="authbuttonreset" type="submit" disabled value="Reset"/>
 			</div>
 		</form>
 
 		<div id="footer">
-			<img id="img_footer" src='images/bg-footer.gif' />
+			<img id="img_footer" alt="UPB footer" src='images/bg-footer.gif' />
 			<table border="0" id="bottom_links">
-				<td class="link_cells" id="cell01">
-					<a class="bottom_links" href="http://studenti.pub.ro">studenti.pub.ro</a>
-				</td>
-				<td class="link_cells" id="cell02">
-					<a class="bottom_links" href="http://curs.pub.ro">curs.pub.ro</a>
-				</td>
-				<td class="link_cells" id="cell03">
-					<a class="bottom_links" href="http://www.upb.ro">upb.ro</a>
-				</td>
+				<tr>
+					<td class="link_cells" id="cell01">
+						<a class="bottom_links" href="http://studenti.pub.ro">studenti.pub.ro</a>
+					</td>
+					<td class="link_cells" id="cell02">
+						<a class="bottom_links" href="http://curs.pub.ro">curs.pub.ro</a>
+					</td>
+					<td class="link_cells" id="cell03">
+						<a class="bottom_links" href="http://www.upb.ro">upb.ro</a>
+					</td>
+				</tr>
 			</table>
 		</div>
 	</div>
