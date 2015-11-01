@@ -1,9 +1,7 @@
 $(document).ready(function() {
-	$("#authdata").prop("placeholder", $("#authmethod option:selected").text());
+	changeAuthdataText();
 
-	$("#authmethod").change(function() {
-		$("#authdata").prop("placeholder", $("#authmethod option:selected").text());
-	});
+	$("#authmethod").change(changeAuthdataText);
 
 	$("#authdata").keyup(function() {
 		if ($("#authdata").val().length == 0) {
@@ -37,3 +35,16 @@ $(document).ready(function() {
 		});
 	});
 });
+
+function changeAuthdataText() {
+	var authmethod = $("#authmethod option:selected").text();
+
+	$("#authdata").prop("placeholder", authmethod);
+	if (authmethod.toLowerCase() == "email") {
+		$("#authdata").prop("type", "email");
+	} else if (authmethod.toLowerCase() == "telnum") {
+		$("#authdata").prop("type", "tel");
+	} else {
+		$("#authdata").prop("type", "text");
+	}
+}
