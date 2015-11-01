@@ -57,7 +57,8 @@ require("config.php");
 				<div id="recaptcha" class="g-recaptcha" data-sitekey=<?php echo $captchasitekey; ?>> </div>
 				<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=ro" async defer>
 				</script>
-				<noscript class="bg-danger text-danger"><br/><b>Vă rugăm activați javascript în browser pentru a vă putea reseta parola.</b><br/><br/></noscript>
+				<noscript class="bg-danger text-danger"><br/><b>Vă rugăm activați javascript 
+							în browser pentru a vă putea reseta parola.</b><br/><br/></noscript>
 			</div>
 			<div class="form-group">
 				<input class="btn btn-default" id="authbuttonreset" type="submit" disabled value="Reset"/>
@@ -65,7 +66,7 @@ require("config.php");
 		</form>
 
 		<div class="page-footer text-center">
-			<img id="footer-img" class="img-responsive center-block" alt="UPB footer" src='images/bg-footer.gif' width="630" height="50">
+			<img id="footer-img" class="img-responsive center-block" alt="UPB footer" src='images/bg-footer-transparent.gif' width="630" height="50">
 			<table id="bottom-links">
 				<tr> 
 					<td id="cell1"><a class="btn-link" href="http://studenti.pub.ro">studenti.pub.ro</a></td>

@@ -34,6 +34,19 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	//$(window).resize(function () {
+		//var positionButton = $("#authbuttonreset").offset();
+		//var positionFooterImg = $("#footer-img").offset();
+
+		//if (positionButton.top > positionFooterImg.top - 25) {
+		//	$("#footer-img").offset({top: positionButton.top + 25, left: positionFooterImg.left});
+		//	$("#bottom-links").offset({top: positonButton.top + 75, left: positionFooterImg.left});
+		//}
+		//alert("(" + positionButton.left + ";" + positionButton.top + "), (" +
+		//		positionFooterImg.left + "; " + positionFooterImg.top + ")" + 
+		//		$(window).height() + "|" + $(document).height());
+	//});
 });
 
 // Changes input #authdata text and type based on selected method.
