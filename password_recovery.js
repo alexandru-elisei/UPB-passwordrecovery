@@ -36,6 +36,7 @@ $(document).ready(function() {
 	});
 });
 
+// Changes input #authdata text and type based on selected method.
 function changeAuthdataText() {
 	var authmethod = $("#authmethod option:selected").text();
 
