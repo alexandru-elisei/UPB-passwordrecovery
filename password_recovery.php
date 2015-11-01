@@ -11,7 +11,7 @@ require("config.php");
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="password_recovery.js"></script>
 	<link rel="stylesheet" type="text/css" href="password_recovery.css">
-	<title>Password Recovery</title>
+	<title>Resetare Parola</title>
 </head>
 
 <body>
