@@ -57,6 +57,7 @@ require("config.php");
 				<div id="recaptcha" class="g-recaptcha" data-sitekey=<?php echo $captchasitekey; ?>> </div>
 				<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=ro" async defer>
 				</script>
+				<noscript class="bg-danger text-danger"><br/><b>Vă rugăm activați javascript în browser pentru a vă putea reseta parola.</b><br/><br/></noscript>
 			</div>
 			<div class="form-group">
 				<input class="btn btn-default" id="authbuttonreset" type="submit" disabled value="Reset"/>
