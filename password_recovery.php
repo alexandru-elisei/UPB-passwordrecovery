@@ -2,7 +2,7 @@
 require("config.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,15 +21,22 @@ require("config.php");
 	<div class="container">
 		<div class="text-justify">
 			<br/>
-			<p class="info">Vă rugăm să alegeți metoda preferată de resetare a parolei (UserID, Email personal sau Nr. tel. mobil), apoi completați câmpul de mai jos. Toate trei provin de pe platforma <a href="http://studenti.pub.ro">studenti.pub.ro</a>:
+			<p class="info">Vă rugăm să alegeți metoda preferată de resetare a parolei 
+							(UserID, Email personal sau Nr. tel. mobil), apoi 
+							completați câmpul de mai jos. Toate trei provin de pe 
+							platforma <a href="http://studenti.pub.ro">studenti.pub.ro</a>:
 			<ul class="list">
-				<li><strong>UserID</strong>: poate fi găsit în pagina <strong>Acces site cursuri</strong></li>
-				<li><strong>Email personal</strong>: poate fi găsit în pagina <strong>Date personale</strong>, câmpul <i>E-mail</i></li>
-				<li><strong>Nr. tel. mobil</strong>: poate fi găsit în pagina <strong>Date personale</strong>, câmpul <i>Telefon mobil</i></li>
+				<li><strong>UserID</strong>: poate fi găsit în pagina 
+					<strong>Acces site cursuri</strong></li>
+				<li><strong>Email personal</strong>: poate fi găsit în pagina 
+					<strong>Date personale</strong>, câmpul <i>E-mail</i></li>
+				<li><strong>Nr. tel. mobil</strong>: poate fi găsit în pagina 
+					<strong>Date personale</strong>, câmpul <i>Telefon mobil</i></li>
 			</ul>
-			<p class="info">Un cod de verificare va fi trimis către adresa de e-mail personală cu instrucțiuni de resetare a parolei.</p>
+			<p class="info">Un cod de verificare va fi trimis către adresa de e-mail 
+							personală cu instrucțiuni de resetare a parolei.</p>
 		</div>
-		<br />
+		<br/>
 
 		<form id="authform" role="form">
 			<div class="form-group">
@@ -66,7 +73,6 @@ require("config.php");
 				</tr>
 			</table>
 		</div>
-
 	</div>
 </body>
 </html>
