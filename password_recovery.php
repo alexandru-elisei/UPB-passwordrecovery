@@ -65,8 +65,8 @@ require("config.php");
 			</div>
 		</form>
 
-		<div class="page-footer text-center">
-			<img id="footer-img" class="img-responsive center-block" alt="UPB footer" src='images/bg-footer-transparent.gif' width="630" height="50">
+		<div id="footer" class="text-center">
+			<img id="footer-img" class="img-responsive" alt="UPB footer" src='images/bg-footer-transparent.gif' width="630" height="50">
 			<table id="bottom-links">
 				<tr> 
 					<td id="cell1"><a class="btn-link" href="http://studenti.pub.ro">studenti.pub.ro</a></td>

@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	changeAuthdataText();
+	setContainerHeight();
 
+	$(window).resize(setContainerHeight);
 	$("#authmethod").change(changeAuthdataText);
 
 	$("#authdata").keyup(function() {
@@ -35,18 +37,6 @@ $(document).ready(function() {
 		});
 	});
 
-	//$(window).resize(function () {
-		//var positionButton = $("#authbuttonreset").offset();
-		//var positionFooterImg = $("#footer-img").offset();
-
-		//if (positionButton.top > positionFooterImg.top - 25) {
-		//	$("#footer-img").offset({top: positionButton.top + 25, left: positionFooterImg.left});
-		//	$("#bottom-links").offset({top: positonButton.top + 75, left: positionFooterImg.left});
-		//}
-		//alert("(" + positionButton.left + ";" + positionButton.top + "), (" +
-		//		positionFooterImg.left + "; " + positionFooterImg.top + ")" + 
-		//		$(window).height() + "|" + $(document).height());
-	//});
 });
 
 // Changes input #authdata text and type based on selected method.
@@ -60,5 +50,17 @@ function changeAuthdataText() {
 		$("#authdata").prop("type", "tel");
 	} else {
 		$("#authdata").prop("type", "text");
+	}
+}
+
+// Sets container height to occupy the entire document.
+function setContainerHeight() {
+	var containerPaddingTop = 100;
+	var containerPaddingBottom = 10;
+	var containerMinHeight = 660;
+	var documentMinHeight = containerPaddingTop + containerPaddingBottom + containerMinHeight;
+	if ($(document).height() > documentMinHeight) {
+		var newHeight = ($(document).height() - containerPaddingTop - containerPaddingBottom) + "px";
+		$(".container").css("min-height", newHeight);
 	}
 }
