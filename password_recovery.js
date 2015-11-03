@@ -56,8 +56,8 @@ function changeAuthdataText() {
 // Sets container height to occupy the entire document.
 function setContainerHeight() {
 	var containerPaddingTop = 100;
-	var containerPaddingBottom = 10;
-	var containerMinHeight = 660;
+	var containerPaddingBottom = 0;
+	var containerMinHeight = 640;
 	var documentMinHeight = containerPaddingTop + containerPaddingBottom + containerMinHeight;
 	if ($(document).height() > documentMinHeight) {
 		var newHeight = ($(document).height() - containerPaddingTop - containerPaddingBottom) + "px";
