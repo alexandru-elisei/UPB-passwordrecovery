@@ -1,5 +1,5 @@
 <?php
-require("config.php");
+require_once("config.php");
 ?>
 <!DOCTYPE html>
 <html lang="ro">
@@ -43,9 +43,21 @@ require("config.php");
 				<label for="authmethod">Metoda de autentificare:</label>
 				<br/>
 				<select class="form-control" id="authmethod" name="authmethod">
-					<option selected value="userid">UserID</option>
-					<option value="email">Email</option>
-					<option disabled value="telnum">Nr. tel. mobil (indisponibil)</option>
+					<?php
+						foreach (Password_Recovery_Config::AUTH_METHODS_TEXT as $method => $text) {
+							$line = '<option';
+							$is_enabled = Password_Recovery_Config::AUTH_METHODS_ENABLED[$method];
+							if (!$is_enabled) {
+								$line = $line . ' disabled';
+							}
+							$line = $line . ' value="' . $method . '">' . $text;
+							if (!$is_enabled) {
+								$line = $line . ' (indisponibil)';
+							}
+							$line = $line . '</option>';
+							echo $line;
+						}
+					?>
 				</select>
 			</div>
 			<div class="form-group">
@@ -54,7 +66,8 @@ require("config.php");
 			</div>
 			<div class="form-group">
 				<p class="authinfo" id="captchainfo"><strong>Sunteți un robot?</strong></p>
-				<div id="recaptcha" class="g-recaptcha" data-sitekey=<?php echo $captchasitekey; ?>> </div>
+				<div id="recaptcha" class="g-recaptcha" data-sitekey=<?php 
+					echo Password_Recovery_Config::SITE_KEY; ?>> </div>
 				<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=ro" async defer>
 				</script>
 				<noscript class="bg-danger text-danger"><br/><b>Vă rugăm activați javascript 

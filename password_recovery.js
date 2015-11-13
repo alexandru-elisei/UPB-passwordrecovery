@@ -20,7 +20,7 @@ $(document).ready(function() {
 		$.post("validate_captcha.php", {"g-recaptcha-response": captchaResponse}, function(data) {
 			if (data === "success") {
 				// Creating phony form to redirect with post data
-				var url = "forgot-passwordck.php";
+				var url = "forgot_passwordck_do_not_upload.php";
 				var authmethod = $("#authmethod option:selected").text().toLowerCase();
 				var authdata = $("#authdata").val();
 				var form = $('<form action="' + url + '" method="post">' +

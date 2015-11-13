@@ -1,13 +1,13 @@
 <?php
 require("recaptcha/src/autoload.php");
-require("config.php");
+require_once("config.php");
 
 if (empty($_POST["g-recaptcha-response"])) {
 	echo "failed";
 	die;
 }
 
-$recaptcha = new \ReCaptcha\ReCaptcha($captchasecret);
+$recaptcha = new \ReCaptcha\ReCaptcha(Password_Recovery_Config::CAPTCHA_SECRET);
 $response = filter_var(trim($_POST["g-recaptcha-response"]), FILTER_SANITIZE_STRING);
 $validation = $recaptcha->verify($response);
 
