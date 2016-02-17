@@ -1,6 +1,6 @@
 <?php
 require("recaptcha/src/autoload.php");
-require_once("config.php");
+require_once(__DIR__ . "/config.php");
 
 if (empty($_POST["g-recaptcha-response"])) {
 	echo "failed";

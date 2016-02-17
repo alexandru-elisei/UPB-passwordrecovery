@@ -20,7 +20,8 @@ require_once(__DIR__ . '/render_footer.php');
 		<img class="img-responsive center-block" alt="UPB logo" src="images/logo.gif" width="580" height="50">
 	</div>
 	<div class="container text-justify">
-		<br/>
+		<h3>Date autentificare</h3>
+		<hr>
 		<p class="info">Vă rugăm să alegeți metoda preferată de resetare a parolei 
 						(UserID, Email personal sau Nr. tel. mobil), apoi 
 						completați câmpul de mai jos. Toate trei provin de pe 

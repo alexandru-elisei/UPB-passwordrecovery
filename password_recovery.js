@@ -16,7 +16,7 @@ $(document).ready(function() {
 	$("#authform").submit(function(event) {
 		event.preventDefault();
 
-		var verification_url = "forgot-passwordck-git-do-not-track.php";
+		var verification_url = "forgot-passwordck.php";
 		var captchaResponse = grecaptcha.getResponse();
 		$.post("validate_captcha.php", {"g-recaptcha-response": captchaResponse}, function(data) {
 			if (data === "success") {
@@ -57,7 +57,7 @@ function changeAuthdataText() {
 function setContainerHeight() {
 	var containerPaddingTop = 100;
 	var containerPaddingBottom = 0;
-	var containerMinHeight = 640;
+	var containerMinHeight = 710;
 	var documentMinHeight = containerPaddingTop + containerPaddingBottom + containerMinHeight;
 	if ($(document).height() > documentMinHeight) {
 		var newHeight = ($(document).height() - containerPaddingTop - containerPaddingBottom) + "px";
