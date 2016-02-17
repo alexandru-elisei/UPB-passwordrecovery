@@ -1,5 +1,6 @@
 <?php
-require_once("config.php");
+require_once(__DIR__ . "/config.php");
+require_once(__DIR__ . '/render_footer.php');
 ?>
 <!DOCTYPE html>
 <html lang="ro">
@@ -18,24 +19,22 @@ require_once("config.php");
 	<div class="page-header">
 		<img class="img-responsive center-block" alt="UPB logo" src="images/logo.gif" width="580" height="50">
 	</div>
-	<div class="container">
-		<div class="text-justify">
-			<br/>
-			<p class="info">Vă rugăm să alegeți metoda preferată de resetare a parolei 
-							(UserID, Email personal sau Nr. tel. mobil), apoi 
-							completați câmpul de mai jos. Toate trei provin de pe 
-							platforma <a href="http://studenti.pub.ro">studenti.pub.ro</a>:
-			<ul class="list">
-				<li><strong>UserID</strong>: poate fi găsit în pagina 
-					<strong>Acces site cursuri</strong></li>
-				<li><strong>Email personal</strong>: poate fi găsit în pagina 
-					<strong>Date personale</strong>, câmpul <i>E-mail</i></li>
-				<li><strong>Nr. tel. mobil</strong>: poate fi găsit în pagina 
-					<strong>Date personale</strong>, câmpul <i>Telefon mobil</i></li>
-			</ul>
-			<p class="info">Un cod de verificare va fi trimis către adresa de e-mail 
-							personală cu instrucțiuni de resetare a parolei.</p>
-		</div>
+	<div class="container text-justify">
+		<br/>
+		<p class="info">Vă rugăm să alegeți metoda preferată de resetare a parolei 
+						(UserID, Email personal sau Nr. tel. mobil), apoi 
+						completați câmpul de mai jos. Toate trei provin de pe 
+						platforma <a href="http://studenti.pub.ro">studenti.pub.ro</a>:
+		<ul class="list">
+			<li><strong>UserID</strong>: poate fi găsit în pagina 
+				<strong>Acces site cursuri</strong></li>
+			<li><strong>Email personal</strong>: poate fi găsit în pagina 
+				<strong>Date personale</strong>, câmpul <i>E-mail</i></li>
+			<li><strong>Nr. tel. mobil</strong>: poate fi găsit în pagina 
+				<strong>Date personale</strong>, câmpul <i>Telefon mobil</i></li>
+		</ul></p>
+		<p class="info">Un cod de verificare va fi trimis către adresa de e-mail 
+						personală cu instrucțiuni de resetare a parolei.</p>
 		<br/>
 
 		<form id="authform" role="form">
@@ -76,18 +75,11 @@ require_once("config.php");
 			<div class="form-group">
 				<input class="btn btn-default" id="authbuttonreset" type="submit" disabled value="Reset"/>
 			</div>
+			<?php
+				render_footer();
+			?>
 		</form>
 
-		<div id="footer" class="text-center">
-			<img id="footer-img" class="img-responsive" alt="UPB footer" src='images/bg-footer-transparent.gif' width="630" height="50">
-			<table id="bottom-links">
-				<tr> 
-					<td id="cell1"><a class="btn-link" href="http://studenti.pub.ro">studenti.pub.ro</a></td>
-					<td id="cell2"><a class="btn-link" href="http://curs.pub.ro">curs.pub.ro</a></td>
-					<td id="cell3"><a class="btn-link" href="http://www.upb.ro">upb.ro</a></td>
-				</tr>
-			</table>
-		</div>
 	</div>
 </body>
 </html>

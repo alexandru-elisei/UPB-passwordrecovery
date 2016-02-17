@@ -10,20 +10,20 @@ $(document).ready(function() {
 			$("#authbuttonreset").prop("disabled", true);
 		} else {
 			$("#authbuttonreset").prop("disabled", false);
-		}	
+		}
 	});
 
 	$("#authform").submit(function(event) {
 		event.preventDefault();
 
+		var verification_url = "forgot-passwordck-git-do-not-track.php";
 		var captchaResponse = grecaptcha.getResponse();
 		$.post("validate_captcha.php", {"g-recaptcha-response": captchaResponse}, function(data) {
 			if (data === "success") {
 				// Creating phony form to redirect with post data
-				var url = "forgot_passwordck_do_not_upload.php";
 				var authmethod = $("#authmethod option:selected").text().toLowerCase();
 				var authdata = $("#authdata").val();
-				var form = $('<form action="' + url + '" method="post">' +
+				var form = $('<form action="' + verification_url + '" method="post">' +
 						'<input type="text" name="authmethod" id="authmethod" value="' + authmethod + '">' + 
 						'<input type="text" name="authdata" id="authdata" value="' + authdata + '">' + 
 						'</form>');

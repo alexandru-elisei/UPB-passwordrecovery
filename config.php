@@ -28,8 +28,11 @@ class Password_Recovery_Config
 		'email'		=> true,
 		'telnum'	=> false,
 	);
+
+	/**
+	 * Redirect site url.
+	 */
+	const SITE_URL = '/pass/password_recovery.php';
+	// Change this to:
+	// const SITE_URL = 'https://cs.curs.pub.ro/reset/';
 }
-
-// Redirect site url.
-//$PASSWORD_RECOVERY_SITE_URL = 'https://cs.curs.pub.ro/reset/';
-
