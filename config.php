@@ -12,22 +12,19 @@ class Password_Recovery_Config
 	const SITE_KEY = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
 
 	/**
-	 * Possible authentication methods, in the form 'method id' => 'select text'.
+	 * Is userid authentication enabled?
 	 */
-	const AUTH_METHODS_TEXT = array(
-		'userid'	=> 'UserID',
-		'email'		=> 'Email',
-		'telnum'	=> 'Nr. tel. mobil',
-	);
+	const USERID_ENABLED = true;
 
 	/**
-	 * Currently enabled authentication methods.
+	 * Is email authentication enabled?
 	 */
-	const AUTH_METHODS_ENABLED = array(
-		'userid'	=> true,
-		'email'		=> true,
-		'telnum'	=> false,
-	);
+	const EMAIL_ENABLED = true;
+
+	/**
+	 * Is telnum authentication enabled?
+	 */
+	const TELNUM_ENABLED = false;
 
 	/**
 	 * Redirect site url.

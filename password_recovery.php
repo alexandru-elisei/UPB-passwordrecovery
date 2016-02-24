@@ -1,6 +1,20 @@
 <?php
 require_once(__DIR__ . "/config.php");
 require_once(__DIR__ . '/render_footer.php');
+
+$auth_methods_text = array(
+	'userid'	=> 'UserID',
+	'email'		=> 'Email',
+	'telnum'	=> 'Nr. tel. mobil'
+);
+
+$auth_methods_enabled = array();
+$auth_methods_enabled['userid'] = (Password_Recovery_Config::USERID_ENABLED &&
+								   Password_Recovery_Config::USERID_ENABLED === true);
+$auth_methods_enabled['email'] = (Password_Recovery_Config::EMAIL_ENABLED &&
+								  Password_Recovery_Config::EMAIL_ENABLED === true);
+$auth_methods_enabled['telnum'] = (Password_Recovery_Config::TELNUM_ENABLED &&
+								   Password_Recovery_Config::TELNUM_ENABLED === true);
 ?>
 <!DOCTYPE html>
 <html lang="ro">
@@ -44,9 +58,9 @@ require_once(__DIR__ . '/render_footer.php');
 				<br/>
 				<select class="form-control" id="authmethod" name="authmethod">
 					<?php
-						foreach (Password_Recovery_Config::AUTH_METHODS_TEXT as $method => $text) {
+						foreach ($auth_methods_text as $method => $text) {
 							$line = '<option';
-							$is_enabled = Password_Recovery_Config::AUTH_METHODS_ENABLED[$method];
+							$is_enabled = $auth_methods_enabled[$method];
 							if (!$is_enabled) {
 								$line = $line . ' disabled';
 							}
